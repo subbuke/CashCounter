@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+
+  height: 100vh;
+  background: #1e1e2f;
+}
+
+button {
+  color: #090909;
+  padding: 0.7em 1.7em;
+  margin-top: 60px;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  position: relative;
+  top: -40px;
+  right: -20px;
+}
+
+button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+button:hover {
+  background-color: #090909;
+  color: antiquewhite;
+  border: 1px solid #090909;
+  box-shadow: 4px 4px 10px #000000,
+              -4px -4px 10px #2a2a2a;
+}
+
+/* From Uiverse.io by Praashoo7 */ 
+.input {
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 1em;
+  background-color: #ccc;
+  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+  transition: 300ms ease-in-out;
+  position: relative;
+  top: -40px;
+  left: 12px;
+}
+
+.input:focus {
+  background-color: white;
+  transform: scale(1.05);
+
+}
+
+.title{
+ color: #fffcfc;
+ background-color: #7272a8;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.sym{
+    padding-left: 8px;
+}
