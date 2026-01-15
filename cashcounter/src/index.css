@@ -2,125 +2,97 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  min-height: 100vh;
-  background: #1e1e2f;
-  color: #ffffff;
-}
-
-/* HEADER */
-.title {
-  background-color: #7272a8;
-  height: 60px;
+  background: #0f172a;
+  color: #e5e7eb;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
+  min-height: 100vh;
+}
+
+/* Title */
+.title {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
 }
 
 .sym {
-  margin-left: 8px;
+  color: #22c55e;
+  margin-left: 5px;
 }
 
-/* BALANCE */
+/* Balance box */
 .balance {
-  text-align: right;
-  padding: 15px 20px;
-  font-size: 22px;
-}
-
-/* TOP BUTTON */
-.btn2 {
-  margin-left: 20px;
-  margin-bottom: 15px;
-  padding: 8px 20px;
-}
-
-/* COMMON BUTTON */
-button {
-  background: #e8e8e8;
-  color: #090909;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #090909;
-  color: antiquewhite;
-}
-
-/* INPUT STYLE */
-.input,
-.five,
-.two,
-.one,
-.fifty,
-.twenty,
-.ten,
-.fiveru,
-.tworu,
-.oneru {
-  width: 220px;
-  padding: 10px;
+  margin: 20px auto;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #022c22;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 15px 30px;
   border-radius: 14px;
-  border: none;
-  outline: none;
-  background: #ccc;
-  box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+  width: fit-content;
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4);
 }
 
-/* AMOUNT SECTION */
+/* Notes container */
 .amt {
   margin-top: 30px;
-  padding: 20px;
   display: grid;
-  grid-template-columns: 60px 240px 80px;
-  gap: 15px 10px;
-  justify-content: center;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  width: 90%;
+  max-width: 900px;
 }
 
-/* DENOMINATION LABEL */
+/* Each note row */
+.amt > div {
+  background: #020617;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Denomination text */
 .amt h2 {
-  font-size: 1.1rem;
-  font-weight: normal;
-  text-align: right;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: #38bdf8;
 }
 
-/* MOBILE RESPONSIVE */
+/* Input */
+.amt input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  background: #020617;
+  color: #e5e7eb;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.amt input::placeholder {
+  color: #64748b;
+}
+
+.amt input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.3);
+}
+
+/* Responsive */
 @media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
+
   .balance {
-    text-align: center;
-  }
-
-  .amt {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .amt h2 {
-    text-align: center;
-  }
-
-  .input,
-  .five,
-  .two,
-  .one,
-  .fifty,
-  .twenty,
-  .ten,
-  .fiveru,
-  .tworu,
-  .oneru,
-  button {
-    width: 100%;
-    max-width: 280px;
-    margin: auto;
+    font-size: 1.6rem;
   }
 }

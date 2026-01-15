@@ -1,52 +1,58 @@
-
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  
-  let total 
+  const [notes, setNotes] = useState({
+    500: "",
+    200: "",
+    100: "",
+    50: "",
+    20: "",
+    10: "",
+    5: "",
+    2: "",
+    1: "",
+  });
+
+  const handleChange = (denomination, value) => {
+    setNotes({
+      ...notes,
+      [denomination]: value,
+    });
+  };
+
+  const totalBalance = Object.keys(notes).reduce(
+    (sum, note) => sum + Number(note) * (Number(notes[note]) || 0),
+    0
+  );
 
   return (
     <>
-    <div><h1 className='title'>Cash counter<span className='sym'>&#8377;</span></h1>
-    </div>
-    <div className='balance'>998008</div>
-    <button type="button" className='btn2'>k</button>
-     <input type="text" autoComplete="off" name="text" className="input" placeholder="Total amount"></input>
-      <button type="button">save</button>
+      <h1 className="title">
+        Cash Counter <span className="sym">₹</span>
+      </h1>
 
-  <div className='amt'> 
-    <h2>500*</h2>
-    <input type="text" autocomplete="off" name="five" placeholder="Total amount" className='five'></input>
-      <button type="button" className='fivebtn'>save</button>
-      <h2>200*</h2>
-<input type="text" autocomplete="off" name="text"  placeholder="Total amount" className='two'></input>
-      <button type="button" className='twobtn'>save</button>
-      <h2>100*</h2>
-<input type="text" autocomplete="off" name="text"  placeholder="Total amount" className='one'></input>
-      <button type="button" className='onebtn'>save</button>
-      <h2>50*</h2>
-<input type="text" autocomplete="off" name="text"  placeholder="Total amount" className='fifty'></input>
-      <button type="button" className='fiftybtn'>save</button>
-      <h2>20*</h2>
-<input type="text" autocomplete="off" name="text"  placeholder="Total amount" className='twenty'></input>
-      <button type="button" className='twentybtn'>save</button>
-      <h2>10*</h2>
-<input type="text" autocomplete="off" name="text"  placeholder="Total amount" className='ten'></input>
-      <button type="button" className='tenbtn'>save</button>
-      <h2>5*</h2>
-<input type="text" autocomplete="off" name="text"  placeholder="Total amount" className='fiveru'></input>
-      <button type="button" className='fiverubtn'>save</button>
-      <h2>2*</h2>
-<input type="text" autocomplete="off" name="text"  placeholder="Total amount" className='tworu'></input>
-      <button type="button" className='tworutn'>save</button>
-      <h2>1*</h2>
-<input type="text" autocomplete="off" name="text"  placeholder="Total amount" className='oneru'></input>
-      <button type="button" className='onerubtn'>save</button>
+      <div className="layout">
+        {/* LEFT: TOTAL */}
+        <div className="balance">₹ {totalBalance}</div>
 
-    
-     </div>
+        {/* CENTER: NOTES */}
+        <div className="amt">
+          {Object.keys(notes).map((note) => (
+            <div key={note}>
+              <h2>{note} *</h2>
+              <input
+                type="number"
+                placeholder="No. of notes"
+                value={notes[note]}
+                onChange={(e) => handleChange(note, e.target.value)}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
